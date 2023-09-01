@@ -1,8 +1,8 @@
-import requests
-from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-def get_songs():
-    pass
-
-if __name__ == '__main__':
-    get_songs()
+driver = webdriver.Chrome()
+driver.get('https://www.beatport.com/top-100')
+playlist = driver.find_elements(By.CLASS_NAME, 'sc-d187b421-4.bHvdSK')
+for t in playlist:
+    print(t.text)
